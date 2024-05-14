@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Design by foolishdeveloper.com -->
+  <title>Signup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5962/5962463.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
+  <!--Stylesheet-->
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+<div class="background">
+  <div class="shape"></div>
+  <div class="shape"></div>
+</div>
+<form id="login-form" method="post" action="{% url 'signup' %}">
+    {% csrf_token %}
+  <h3>Sign Up Here</h3>
+
+  <input type="email" placeholder="Email" id="email" name="email" required/>
+  <div id="email-error" class="error-message"></div>
+
+  <div class="password-group">
+    <label for="password">Password</label>
+    <input type="password" placeholder="Password" id="password" name="password" required/>
+    <div id="password-error" class="error-message"></div>
+
+    <label for="conform_password">Confirm Password</label>
+    <input type="password" placeholder="Confirm" id="confirm_password" name="confirm_password" required/>
+    <div id="confirm-password-error" class="error-message"></div>
+  </div>
+  <button type="submit">Sign UP</button>
+  <div class="links">
+    <div>
+    <span>I have an account | </span> <a href="{% url 'signIn' %}">Login</a>
+</div>
+  </div>
+</form>
+
+<script src="{% static 'js/validation.js' %}"></script>
+</body>
+</html>
